@@ -1,0 +1,218 @@
+.container {
+  height: 90vh;
+}
+
+.header {
+  height: 10vh;
+  background-color: rgb(24, 194, 246);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header p {
+  padding-top: 4%;
+  color: white;
+  font-size: 2em;
+  padding-left: 4%;
+}
+
+.header span {
+  padding-top: 4%;
+  color: white;
+  font-size: 2em;
+  padding-right: 4%;
+  cursor: pointer;
+}
+
+form {
+  padding: 20px;
+}
+
+.main-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo {
+  width: 40%;
+}
+
+.personal-information {
+  width: 60%;
+  /* background-color: aqua; */
+}
+
+.name-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.name-form input {
+  padding: 12px 6px;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  border: 0.5px solid #999;
+  border-radius: 6px;
+}
+
+.full-input input {
+  width: 97%;
+  padding: 12px 6px;
+  font-size: 16px;
+  background-color: transparent;
+  border: 0.5px solid #999;
+  border-radius: 6px;
+}
+
+.state-input {
+  width: 100%;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 0.5px solid #999;
+}
+
+.custom-select option {
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+}
+
+.country-input {
+  width: 100%;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+}
+
+.full-input label {
+  color: #999;
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  height: auto;
+}
+
+.chip-btn {
+  background-color: #999;
+  padding: 8px;
+  border: none;
+  color: white;
+}
+
+.chip-btn .material-icons {
+  color: yellow;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkbox-text span {
+  color: #999;
+  font-size: 18px;
+}
+
+.submit {
+  margin-top: 10%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cancel {
+  margin-top: 10%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: rgb(24, 194, 246);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 4px;
+}
+
+.cancel-btn {
+  padding: 10px 20px;
+  background-color: rgb(255, 255, 255);
+  color: #999;
+  border: 1px solid #999;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 4px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  height: 25vh;
+  width: 80%;
+}
+
+.upload-text {
+  cursor: pointer;
+  color: rgb(24, 194, 246);
+  padding-top: 8px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.select-profile-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.delete-btn {
+  font-size: 52px;
+  text-align: center;
+  color: rgb(24, 194, 246);
+  margin: 0px 35%;
+  cursor: pointer;
+}
+
+.job-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-container input {
+  width: 80%;
+}
+
+.job-container button {
+  width: 10%;
+  padding: 3px;
+  background-color: rgb(24, 194, 246);
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+}

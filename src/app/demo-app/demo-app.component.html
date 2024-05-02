@@ -1,0 +1,99 @@
+<!-- app.component.html -->
+
+<div class="container">
+  <section class="first">
+    <div class="first-content">
+      <div class="navbar">
+        <div class="logo"><h2>DEMO APP</h2></div>
+        <div class="list">
+          <a href="#">HOME</a>
+          <a href="#">ABOUT US</a>
+          <a href="#">JOBS</a>
+          <a href="#">CLIENTS</a>
+          <a href="#">EMPLOYERS</a>
+          <a href="#">CONTACT US</a>
+        </div>
+      </div>
+
+      <div class="homepage-form">
+        <p>I'm looking for..</p>
+        <div class="job-description">
+          <input matInput placeholder="Enter a Job Description" />
+          <button class="search-btn">
+            <span class="material-icons"> search </span>
+            Search
+          </button>
+        </div>
+        <div class="job-duration">
+          <div class="checkbox">
+            <mat-checkbox class="checkbox-text">
+              <span>Full Time</span>
+            </mat-checkbox>
+            &nbsp;
+            <mat-checkbox class="checkbox-text">
+              <span>Part Time / Casual / Freelance</span>
+            </mat-checkbox>
+          </div>
+          <div class="location">
+            <mat-form-field appearance="fill" class="location-field">
+              <mat-label>Select your Loation</mat-label>
+              <mat-select multiple>
+                <mat-option value="pune">Pune</mat-option>
+                <mat-option value="mumbai">Mumbai</mat-option>
+                <mat-option value="hyderabad">Hyderabad</mat-option>
+                <mat-option value="banglore">Banglore</mat-option>
+                <mat-option value="delhi">Delhi</mat-option>
+                <mat-option value="other">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="register" (click)="onRegisterationForm()">
+          <button class="register-btn">Register</button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="image-slider"
+      [style.transform]="'translateX(-' + currentIndex * slideWidth() + 'px)'"
+    >
+      <div
+        class="slide"
+        *ngFor="let image of images; let i = index"
+        [style.width.px]="slideWidth()"
+      >
+        <img [src]="image" alt="Slide {{ i + 1 }}" />
+      </div>
+    </div>
+    <div class="dots">
+      <span
+        class="dot"
+        *ngFor="let image of images; let i = index"
+        [class.active]="currentIndex === i"
+        (click)="setCurrentIndex(i)"
+      ></span>
+    </div>
+  </section>
+
+  <section class="second">
+    <div class="second-content">
+      <h2>We're leaders in</h2>
+      <h1>Creative Digital Recruitment</h1>
+      <hr class="normal-line" />
+      <p>
+        Based in Surry Hills, the creative hub of Sydney we are surrounded by
+        creativity and that reflects on the type of jobs we recruit for.
+      </p>
+      <button class="more-btn">FIND OUT MORE ABOUT US</button>
+    </div>
+  </section>
+
+  <section class="third">
+    <div class="third-content">
+      <p>Subscribe to our Job Seeker Mailing List</p>
+      <div class="email-input">
+        <input type="email" placeholder="Enter Your Email Address" />
+      </div>
+    </div>
+  </section>
+</div>

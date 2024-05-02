@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="navbar-content">
+    <div class="navbar">
+      <div class="logo"><h2>DEMO APP</h2></div>
+      <div class="list">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT US</a>
+        <a href="#">JOBS</a>
+        <a href="#">CLIENTS</a>
+        <a href="#">EMPLOYERS</a>
+        <a href="#">CONTACT US</a>
+      </div>
+    </div>
+
+    <div class="profile-information">
+      <h1>Profile</h1>
+      <div class="information" *ngIf="userProfile && userProfile.length > 0">
+        <div class="profile-photo">
+          <div class="photo">
+            <img
+              [src]="
+                userProfile[0].profilePhotoPath
+                  ? userProfile[0].profilePhotoPath
+                  : getDefaultPhotoLocal()
+              "
+            />
+          </div>
+          <br />
+          <br />
+          <span tooltip="Edit Profile" class="edit-profile">
+            <button
+              class="edit-profile-btn"
+              color="primary"
+              (click)="onEditRegisterationForm(userProfile)"
+            >
+              Edit Profile
+            </button>
+          </span>
+        </div>
+        <div class="profile-content">
+          <p>
+            I'm {{ userProfile[0].firstName }}
+            <span *ngIf="userProfile[0].lastName">{{
+              userProfile[0].lastName
+            }}</span
+            >.
+            <span *ngIf="userProfile[0].age">
+              Im above {{ userProfile[0].age }} years.
+            </span>
+            <span *ngIf="userProfile[0].email">
+              You can send your emails to
+              <span class="blue-span">{{ userProfile[0].email }} .</span></span
+            >
+            <span *ngIf="userProfile[0].state"
+              >I leave in the state {{ userProfile[0].state }}.
+            </span>
+            <span *ngIf="userProfile[0].jobs.length > 0"
+              >I like to play {{ userProfile[0].jobs }}.</span
+            >
+            <span *ngIf="userProfile[0].newsletter"
+              >And please send me newsletters.</span
+            >
+            <span *ngIf="userProfile[0].contact"
+              >Please reach out to me on my phone number -
+              {{ userProfile[0].contact }}.</span
+            >
+          </p>
+          <br />
+          <br />
+          <span tooltip="I agree" class="agree">
+            <button class="agree-btn" color="primary" type="submit">
+              I Agree
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,322 @@
+/* styles.css or your component-specific stylesheet */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  /* text-align: center; */
+}
+
+/* .first {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+} */
+
+/* .first img {
+  width: 100%;
+  opacity: 0.6;
+} */
+
+.first {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  border-bottom: 5px solid;
+  border-image: repeating-linear-gradient(
+    to right,
+    rgb(0, 242, 255),
+    rgb(0, 242, 255) 6.25%,
+    rgb(24, 206, 215) 6.25%,
+    rgb(24, 206, 215) 12.5%,
+    rgb(180, 234, 237) 12.5%,
+    rgb(180, 234, 237) 18.75%,
+    rgb(20, 130, 136) 18.75%,
+    rgb(20, 130, 136) 25%
+  );
+  border-image-slice: 1;
+}
+
+.image-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+  aspect-ratio: 1/1;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+.first-content {
+  position: absolute;
+  z-index: 1;
+  width: 60%;
+  margin: 5% 20%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo h2 {
+  margin: 0;
+  background-color: rgb(255, 255, 255); /* Example background color */
+  padding: 2px 2px;
+}
+
+.list {
+  color: white;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.list a:first-child {
+  border-top: 3px solid rgb(50, 193, 228);
+}
+
+.list a:not(:first-child) {
+  padding-top: 3px;
+}
+
+.homepage-form {
+  margin-top: 15%;
+}
+
+.homepage-form p {
+  font-style: italic;
+  color: white;
+  font-size: 3em;
+}
+
+.job-description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.job-description input {
+  width: 80%;
+  height: 50px;
+  border: none;
+  padding: 0;
+  border-radius: 2px;
+  outline: none;
+  color: #444;
+}
+
+.job-description input::placeholder {
+  color: #999;
+  font-style: italic;
+  padding-left: 12px;
+}
+
+.search-btn {
+  padding: 10px 18px;
+  background-color: rgb(24, 194, 246);
+  color: white;
+  font-style: italic;
+  border: none;
+  font-size: 1.5em;
+}
+
+.material-icons {
+  font-size: 1em;
+}
+
+.job-duration {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  font-style: italic;
+  font-size: 8px;
+  width: 80%;
+}
+
+.checkbox-text span {
+  color: white;
+}
+
+.checkbox-text {
+  color: white;
+}
+
+.location label {
+  color: #999;
+}
+
+.location-field {
+  padding: 2px;
+}
+
+.register {
+  margin-top: 10%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.register-btn {
+  padding: 10px 20px;
+  background-color: rgb(24, 194, 246);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+/* second SECTION */
+
+.second {
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #585858;
+  border-bottom: 5px solid;
+  border-image: repeating-linear-gradient(
+    to right,
+    rgb(0, 242, 255),
+    rgb(0, 242, 255) 6.25%,
+    rgb(24, 206, 215) 6.25%,
+    rgb(24, 206, 215) 12.5%,
+    rgb(180, 234, 237) 12.5%,
+    rgb(180, 234, 237) 18.75%,
+    rgb(20, 130, 136) 18.75%,
+    rgb(20, 130, 136) 25%
+  );
+  border-image-slice: 1;
+}
+
+.second-content {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+.second-content h2 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.second-content h1 {
+  font-weight: 300;
+  font-size: 3em;
+  font-family: sans-serif;
+  letter-spacing: 0.1ch;
+  padding-top: 1%;
+}
+
+.normal-line {
+  border: none;
+  height: 3px;
+  background-color: rgb(24, 194, 246);
+  width: 5%;
+  margin: 2% auto;
+}
+
+.second-content p {
+  font-weight: 300;
+  font-size: 1.3em;
+  width: 35%;
+  font-family: sans-serif;
+  margin: auto;
+}
+
+.more-btn {
+  margin-top: 3%;
+  padding: 14px 22px;
+  border: 2px solid rgb(24, 194, 246);
+  color: rgb(24, 194, 246);
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* third SECTION */
+
+.third {
+  text-align: center;
+  background-color: #000000;
+  color: #c3c0c0;
+  border-bottom: 5px solid;
+  border-image: repeating-linear-gradient(
+    to right,
+    rgb(0, 242, 255),
+    rgb(0, 242, 255) 6.25%,
+    rgb(24, 206, 215) 6.25%,
+    rgb(24, 206, 215) 12.5%,
+    rgb(180, 234, 237) 12.5%,
+    rgb(180, 234, 237) 18.75%,
+    rgb(20, 130, 136) 18.75%,
+    rgb(20, 130, 136) 25%
+  );
+  border-image-slice: 1;
+}
+
+.third-content {
+  padding-top: 8%;
+  padding-bottom: 8%;
+  width: 20%;
+  margin: auto;
+}
+
+.third-content p {
+  font-weight: 300;
+  font-size: 1.3em;
+  font-family: sans-serif;
+  margin: auto;
+  padding-bottom: 3%;
+  font-weight: 500;
+  letter-spacing: 0.1ch;
+}
+
+.email-input {
+  margin: auto;
+  width: 100%;
+  padding-top: 5%;
+}
+
+.email-input input[type="email"] {
+  padding: 12px 2px;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid rgb(24, 194, 246);
+  border-radius: 6px;
+}

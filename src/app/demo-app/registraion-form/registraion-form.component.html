@@ -1,0 +1,212 @@
+<div class="container">
+  <div class="header">
+    <p>Register</p>
+    <span mat-dialog-close class="material-icons"> cancel </span>
+  </div>
+  <form [formGroup]="form" autocomplete="off">
+    <div class="main-form">
+      <div class="photo">
+        <div class="image-container">
+          <label class="hoverable" for="fileInput">
+            <img [src]="url ? url : '../../../assets/sample-profile.png'" />
+            <div class="upload-text">Upload your photo</div>
+            <div class="background"></div>
+          </label>
+          <br />
+          <input
+            id="fileInput"
+            type="file"
+            [(ngModel)]="url"
+            accept="image/*"
+            formControlName="profilePhotoPath"
+            class="select-profile-picture"
+            (change)="onSelectFile($event)"
+          />
+        </div>
+        <br />
+        <span
+          class="material-icons delete-btn"
+          *ngIf="url"
+          (click)="deleteProfilePhoto()"
+        >
+          cancel
+        </span>
+      </div>
+
+      <div class="personal-information">
+        <div class="name-form">
+          <input
+            matInput
+            placeholder="First Name*"
+            formControlName="firstName"
+            appearance="outline"
+            style="width: 50%"
+          />
+          <input
+            matInput
+            placeholder="Last Name"
+            formControlName="lastName"
+            appearance="outline"
+            style="width: 30%"
+          />
+        </div>
+        <mat-error
+          *ngIf="
+            form.get('firstName')?.invalid && form.get('firstName')?.touched
+          "
+        >
+          <div *ngIf="form.get('firstName')?.hasError('required')">
+            First name is required*.
+          </div>
+          <div *ngIf="form.get('firstName')?.hasError('pattern')">
+            Only alphabetic characters are allowed.
+          </div>
+          <div *ngIf="form.get('firstName')?.hasError('maxlength')">
+            Maximum 20 characters are allowed.
+          </div>
+        </mat-error>
+        <br />
+        <div class="full-input">
+          <input
+            matInput
+            appearance="outline"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <br />
+        <div class="full-input">
+          <input
+            matInput
+            appearance="outline"
+            placeholder="(541) 754-3010"
+            formControlName="contact"
+          />
+        </div>
+        <br />
+        <!-- <div class="full-input">
+          <input
+            matInput
+            appearance="outline"
+            placeholder="23"
+            formControlName="age"
+          />
+        </div> -->
+        <div class="full-input">
+          <div class="example-label-container">
+            <label id="example-name-label" class="example-name-label"
+              >Value</label
+            >
+            <label class="example-value-label">{{ slider.value }}</label>
+          </div>
+          <mat-slider
+            class="example-margin"
+            [disabled]="disabled"
+            [max]="max"
+            [min]="min"
+            [step]="step"
+            [discrete]="thumbLabel"
+            formControlName="age"
+            [showTickMarks]="showTicks"
+          >
+            <input matSliderThumb [(ngModel)]="value" #slider />
+          </mat-slider>
+        </div>
+        <br />
+        <div class="state-input">
+          <select
+            formControlName="state"
+            class="custom-select"
+            style="color: #999; font-size: 16px; padding-left: 0px"
+          >
+            <option value="" disabled selected>State</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="gujrat">Gujrat</option>
+            <option value="keral">Keral</option>
+          </select>
+        </div>
+        <br />
+        <div class="country-input">
+          <select
+            formControlName="country"
+            class="custom-select"
+            style="color: #999; font-size: 16px; padding-left: 0px"
+          >
+            <option value="" disabled selected>Country</option>
+            <option value="india">India</option>
+            <option value="australia">Australia</option>
+            <option value="indonesia">Indonesia</option>
+          </select>
+        </div>
+        <br />
+        <div class="full-input">
+          <input
+            matInput
+            appearance="outline"
+            placeholder="Address"
+            formControlName="address"
+          />
+        </div>
+        <br />
+        <div class="full-input">
+          <div class="job-container">
+            <input
+              matInput
+              appearance="outline"
+              placeholder="Tags"
+              formControlName="jobs"
+              #chipInput
+            />
+            <button class="add" (click)="add(chipInput.value)">
+              <span class="add-btn material-icons"> add </span>
+            </button>
+          </div>
+          <div class="chip-container" *ngIf="jobChips.length > 0">
+            <div *ngFor="let job of jobChips" class="chip">
+              <button class="chip-btn">
+                <span style="font-size: 14px; padding-right: 18px">{{
+                  job
+                }}</span>
+                <span (click)="remove(job)" class="material-icons">
+                  close
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="full-input">
+          <mat-checkbox class="checkbox-text" formControlName="newsletter">
+            <span>subscribe to newsletter</span>
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+    <!-- Actions Buttons - START -->
+    <br /><br />
+    <div style="float: right; margin-bottom: 10%">
+      <span tooltip="Cancel" class="cancel">
+        <button class="cancel-btn" type="reset" (click)="onCancel()">
+          Cancel
+        </button>
+      </span>
+      &nbsp;
+      <!-- Add Button - START -->
+      <span tooltip="Submit" placement="top" class="submit">
+        <button
+          class="submit-btn"
+          color="primary"
+          type="submit"
+          (click)="onSubmit()"
+          [disabled]="form.invalid"
+        >
+          Submit
+        </button>
+      </span>
+      <!-- Add Button - START -->
+    </div>
+    <!-- Actions Buttons - END -->
+  </form>
+</div>
+
+<ngx-spinner></ngx-spinner>
