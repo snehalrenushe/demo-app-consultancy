@@ -9,7 +9,33 @@ import { UserProfile } from './demo-app.model';
 export class DemoAppService {
   constructor(private http: HttpClient) {}
 
-  onAddUser(data: any) {
+  onAddUser(
+    firstName: string,
+    lastName: string,
+    email: string,
+    contact: string,
+    age: number,
+    state: string,
+    country: string,
+    address: string,
+    jobs: string[],
+    newsletter: boolean,
+    profilePhotoPath: string
+  ) {
+    const data = {
+      firstName,
+      lastName,
+      email,
+      contact,
+      age,
+      state,
+      country,
+      address,
+      jobs,
+      newsletter,
+      profilePhotoPath,
+    };
+    
     return this.http.post<any>('http://localhost:3000/userList', data);
   }
 
