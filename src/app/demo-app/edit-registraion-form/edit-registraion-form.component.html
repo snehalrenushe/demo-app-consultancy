@@ -83,14 +83,44 @@
           />
         </div>
         <br />
-        <div class="full-input">
+        <!-- <div class="full-input">
           <input
             matInput
             appearance="outline"
             placeholder="23"
             formControlName="age"
           />
+        </div> -->
+
+        <div class="full-input">
+          <div class="example-label-container">
+            <label id="example-name-label" class="example-name-label"
+              >Age</label
+            >
+            <!-- <label class="example-value-label">{{ slider.value }}</label> -->
+            <mat-slider
+              class="example-margin"
+              [disabled]="disabled"
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [discrete]="thumbLabel"
+              [showTickMarks]="showTicks"
+            >
+              <input
+                matSliderThumb
+                formControlName="age"
+                [(ngModel)]="this.data.age"
+                #slider
+              />
+            </mat-slider>
+          </div>
+          <div class="min-max-value">
+            <span class="min">{{ min }}</span>
+            <span class="max">{{ max }}</span>
+          </div>
         </div>
+        <br />
         <br />
         <div class="state-input">
           <select
@@ -187,3 +217,4 @@
     <!-- Actions Buttons - END -->
   </form>
 </div>
+<ngx-spinner></ngx-spinner>

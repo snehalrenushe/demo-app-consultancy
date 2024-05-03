@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DemoAppService } from '../demo-app.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserProfile } from '../demo-app.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-registraion-form',
@@ -18,16 +19,28 @@ export class EditRegistraionFormComponent {
   url: string = '';
   jobChips: string[] = [];
 
+  disabled = false;
+  max = 60;
+  min = 20;
+  showTicks = true;
+  step = 1;
+  thumbLabel = true;
+  value = 0;
+
   constructor(
     private dialogRef: MatDialogRef<EditRegistraionFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserProfile,
     private router: Router,
     private demoAppService: DemoAppService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
-    this.url = this.data.profilePhotoPath;
+    this.url = this.data.profilePhotoPath
+      ? this.data.profilePhotoPath
+      : '../../../assets/sample-profile.png';
+
     this.form = new FormGroup({
       firstName: new FormControl(this.data.firstName, [
         Validators.required,
@@ -127,6 +140,7 @@ export class EditRegistraionFormComponent {
 
   onSubmit() {
     this.form.controls['jobs'].setValue(this.jobChips);
+    this.spinner.show();
 
     if (this.form.valid) {
       this.demoAppService
@@ -146,12 +160,14 @@ export class EditRegistraionFormComponent {
         )
         .subscribe({
           next: (res) => {
+            this.spinner.hide();
             this.snackBar.open('User updated successfully !!!', 'X', {
               duration: 5000,
             });
             this.dialogRef.close(true);
           },
           error: () => {
+            this.spinner.hide();
             this.snackBar.open('Something went wrong...', 'X', {
               duration: 5000,
             });
