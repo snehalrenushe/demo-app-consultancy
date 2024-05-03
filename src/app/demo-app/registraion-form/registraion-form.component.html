@@ -47,7 +47,7 @@
             placeholder="Last Name"
             formControlName="lastName"
             appearance="outline"
-            style="width: 30%"
+            style="width: 40%"
           />
         </div>
         <mat-error
@@ -95,23 +95,32 @@
         <div class="full-input">
           <div class="example-label-container">
             <label id="example-name-label" class="example-name-label"
-              >Value</label
+              >Age</label
             >
-            <label class="example-value-label">{{ slider.value }}</label>
+            <!-- <label class="example-value-label">{{ slider.value }}</label> -->
+            <mat-slider
+              class="example-margin"
+              [disabled]="disabled"
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [discrete]="thumbLabel"
+              [showTickMarks]="showTicks"
+            >
+              <input
+                matSliderThumb
+                [(ngModel)]="value"
+                #slider
+                formControlName="age"
+              />
+            </mat-slider>
           </div>
-          <mat-slider
-            class="example-margin"
-            [disabled]="disabled"
-            [max]="max"
-            [min]="min"
-            [step]="step"
-            [discrete]="thumbLabel"
-            formControlName="age"
-            [showTickMarks]="showTicks"
-          >
-            <input matSliderThumb [(ngModel)]="value" #slider />
-          </mat-slider>
+          <div class="min-max-value">
+            <span class="min">{{ min }}</span>
+            <span class="max">{{ max }}</span>
+          </div>
         </div>
+        <br />
         <br />
         <div class="state-input">
           <select

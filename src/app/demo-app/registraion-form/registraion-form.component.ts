@@ -20,6 +20,15 @@ export class RegistraionFormComponent {
   imageWidth: number | undefined;
   imageHeight: number | undefined;
 
+  
+  disabled = false;
+  max = 60;
+  min = 20;
+  showTicks = true;
+  step = 1;
+  thumbLabel = true;
+  value = 0;
+
   constructor(
     private dialogRef: MatDialogRef<RegistraionFormComponent>,
     private router: Router,
@@ -126,37 +135,42 @@ export class RegistraionFormComponent {
   onSubmit() {
     this.form.controls['jobs'].setValue([this.jobChips]);
 
-    // console.log(this.form.value);
     this.spinner.show();
 
     if (this.form.valid) {
-      this.demoAppService.onAddUser(this.form.value).subscribe({
-        next: (res) => {
-          this.spinner.hide();
+      this.demoAppService
+        .onAddUser(
+          this.form.value.firstName,
+          this.form.value.lastName,
+          this.form.value.email,
+          this.form.value.contact,
+          this.form.value.age,
+          this.form.value.state,
+          this.form.value.country,
+          this.form.value.address,
+          this.form.value.jobs,
+          this.form.value.newsletter,
+          this.form.value.profilePhotoPath
+        )
+        .subscribe({
+          next: (res) => {
+            this.spinner.hide();
 
-          this.snackBar.open('User registered successfully !!!', 'X', {
-            duration: 5000,
-          });
+            this.snackBar.open('User registered successfully !!!', 'X', {
+              duration: 5000,
+            });
 
-          this.dialogRef.close();
-          this.router.navigate(['/user-profile', res.id]);
-        },
-        error: () => {
-          this.spinner.hide();
+            this.dialogRef.close();
+            this.router.navigate(['/user-profile', res.id]);
+          },
+          error: () => {
+            this.spinner.hide();
 
-          this.snackBar.open('Something went wrong...', 'X', {
-            duration: 5000,
-          });
-        },
-      });
+            this.snackBar.open('Something went wrong...', 'X', {
+              duration: 5000,
+            });
+          },
+        });
     }
   }
-
-  disabled = false;
-  max = 100;
-  min = 0;
-  showTicks = false;
-  step = 1;
-  thumbLabel = false;
-  value = 0;
 }

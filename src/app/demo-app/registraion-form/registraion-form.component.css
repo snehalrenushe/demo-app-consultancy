@@ -216,3 +216,38 @@ img {
   border: none;
   border-radius: 4px;
 }
+
+.example-label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-label-container .example-name-label {
+  width: 10%;
+  font-size: 20px;
+  padding-top: 12px;
+}
+
+.example-label-container .example-margin {
+  width: 80%;
+}
+
+.min-max-value {
+  width: 90%;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+}
+
+.min {
+  width: 50%;
+  font-size: 12px;
+  padding-left: 34px;
+}
+
+.max {
+  width: 50%;
+  font-size: 12px;
+  text-align: right;
+}
